@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './app/layout/styles.css';
 import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
@@ -9,16 +9,16 @@ import { Provider } from 'react-redux';
 import { store } from './app/store/configureStore';
 
 export const history = createBrowserHistory();
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <BrowserRouter>
         <Provider store={store}>
           <App />
         </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
